@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+:root {
+  /* ألوان الوضع المظلم (Dark Mode) */
+  --primary: #3b82f6; 
+  --primary-hover: #60a5fa;
+  --bg-color: #020617; /* أسود مزرق غامق جداً */
+  --card-bg: #0f172a; 
+  --text-main: #f8fafc; 
+  --text-muted: #94a3b8; 
+  --danger-bg: #450a0a; 
+  --danger-text: #fca5a5;
+  --danger-border: #991b1b;
+  --success-bg: #064e3b;
+  --success-text: #6ee7b7;
+  --border-color: #1e293b; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  direction: rtl;
+  min-height: 100vh;
+  
+  /* الخلفية الطبية المتحركة بشفافية 5% */
+  background-image: url("data:image/svg+xml;utf8,<svg width='250' height='250' xmlns='http://www.w3.org/2000/svg' style='opacity:0.05'><text x='20' y='50' font-size='30'>⚕️</text><text x='150' y='120' font-size='30'>🩺</text><text x='50' y='200' font-size='30'>💊</text><text x='200' y='40' font-size='30'>🧬</text><text x='100' y='170' font-size='30'>🏥</text></svg>");
+  animation: scrollBackground 40s linear infinite;
+}
+
+@keyframes scrollBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 500px 500px; }
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* الترويسة الرئيسية */
+.main-header { text-align: center; margin-bottom: 40px; }
+.main-header h1 { font-weight: 800; color: var(--primary); font-size: 2.2rem; margin-bottom: 5px; }
+.main-header p { color: var(--text-muted); font-size: 1.1rem; margin: 0; }
+
+/* الكروت */
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(5px); 
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+/* الأزرار */
+.btn {
+  display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 700;
+  font-family: 'Cairo', sans-serif; text-decoration: none; cursor: pointer; transition: all 0.3s ease; border: none; text-align: center;
+}
+.btn-primary { background: var(--primary); color: #020617; box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3); }
+.btn-primary:hover:not(:disabled) { background: var(--primary-hover); box-shadow: 0 6px 8px -1px rgba(59, 130, 246, 0.5); }
+.btn-primary:disabled { background: #334155; color: #94a3b8; cursor: not-allowed; box-shadow: none; }
+.btn-secondary { background: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+.btn-secondary:hover { background: var(--border-color); color: white; }
+
+/* الفورم والمدخلات */
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+.form-input {
+  width: 100%; padding: 12px 16px; border: 2px solid var(--border-color);
+  background-color: #020617; color: var(--text-main); border-radius: 8px;
+  font-family: 'Cairo', sans-serif; font-size: 1rem; transition: border-color 0.3s ease; box-sizing: border-box;
+}
+.form-input:focus { outline: none; border-color: var(--primary); }
+
+.file-upload-row {
+  display: flex; align-items: center; background: #020617; padding: 12px 16px;
+  border-radius: 8px; border: 1px dashed var(--border-color); margin-bottom: 15px;
+}
+.file-upload-row label { width: 140px; font-weight: 700; color: var(--text-muted); margin: 0; }
+.file-upload-row input[type="file"] { flex-grow: 1; font-family: 'Cairo', sans-serif; color: var(--text-main); }
+
+/* زرار رفع الصور (متوافق مع الأسود) */
+input[type="file"]::file-selector-button {
+  margin-left: 15px; padding: 8px 16px; border-radius: 6px; border: 1px solid var(--primary);
+  background-color: #1e3a8a; color: #bfdbfe; font-family: 'Cairo', sans-serif; font-weight: 700;
+  cursor: pointer; transition: all 0.3s ease;
+}
+input[type="file"]::file-selector-button:hover { background-color: var(--primary); color: #020617; }
+input[type="file"]:focus { outline: none; }
+
+/* التنبيهات والشبكات */
+.alert-danger {
+  background: var(--danger-bg); color: var(--danger-text); padding: 16px; border-radius: 8px;
+  font-weight: 700; border-right: 5px solid var(--danger-border); margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
+.stat-box { background: #020617; border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; text-align: center; }
+.stat-box.highlight { background: var(--success-bg); border-color: #059669; color: var(--success-text); }
+
+/* =========================================
+   إعدادات الطباعة وتصدير PDF
+========================================= */
+@media print {
+  body {
+    background: white !important;
+    background-image: none !important;
+  }
+  .app-container {
+    margin: 20px auto !important;
+    max-width: 100% !important;
+  }
+  .card, .stat-box {
+    background: white !important;
+    border: 1px solid #cbd5e1 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+  /* تحويل كل النصوص للأسود عشان الطباعة تكون واضحة */
+  h1, h2, h3, h4, p, span, div, label {
+    color: black !important;
+  }
+  /* إخفاء الأزرار من الورقة المطبوعة */
+  .btn, .file-upload-row {
+    display: none !important;
+  }
+  /* تظبيط حجم الصور المطبوعة */
+  img {
+    max-height: 200px !important;
+    object-fit: contain !important;
+  }
+}

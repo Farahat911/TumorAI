@@ -1,0 +1,113 @@
+:root {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --bg-dark: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --success-bg: #064e3b;
+  --success-text: #34d399;
+  --success-border: #059669;
+  --danger-bg: #450a0a;
+  --danger-text: #f87171;
+  --danger-border: #ef4444;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  direction: rtl;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.main-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.stat-box.highlight {
+  border-left: 4px solid var(--primary);
+}
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-block;
+  border: none;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-secondary { background: var(--border-color); color: white; }
+.btn-secondary:hover { background: #475569; }
+
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; margin-bottom: 8px; color: var(--text-muted); }
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid var(--border-color);
+  color: white;
+  box-sizing: border-box;
+}
+
+/* التنسيق الخاص بالطباعة */
+@media print {
+  .no-print, .btn, .main-header, input { display: none !important; }
+  body { background: white !important; color: black !important; }
+  .app-container { max-width: 100% !important; padding: 0 !important; }
+  .card { 
+    border: none !important; 
+    background: white !important; 
+    color: black !important;
+    box-shadow: none !important;
+  }
+  .stat-box { 
+    background: #f8fafc !important; 
+    border: 1px solid #e2e8f0 !important; 
+    color: black !important; 
+  }
+  h1, h2, h3, h4 { color: #1e293b !important; }
+}
