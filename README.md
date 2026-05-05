@@ -40,6 +40,7 @@ $$C = \frac{4\pi \times Area}{Perimeter^2}$$
 ## 👨‍💻 Developer
 *   **Mohammed Farahat (Faro)**
 *   Engineering Student at **Mansoura National University**, AI Department (2nd Year).
+*   **Portfolio:** [mofarahat.pythonanywhere.com](https://mofarahat.pythonanywhere.com/)
 
 ---
 *هذا المشروع تم تطويره للأغراض التعليمية والبحثية كجزء من متطلبات مادة الطرق الرياضية.*
